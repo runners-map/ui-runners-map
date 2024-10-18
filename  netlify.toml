@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://*"
+  to = "http://:splat"
+  status = 301
+  force = true
