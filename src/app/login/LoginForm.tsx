@@ -20,7 +20,7 @@ export default function LoginForm() {
 
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     try {
-      const response = await axios.post("/api/user/loginin", data);
+      const response = await axios.post("/api/user/login", data);
       console.log("Registration successful:", response.data);
     } catch (error) {
       console.error("Error during registration:", error);
