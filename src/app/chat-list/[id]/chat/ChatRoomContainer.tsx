@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Client } from "@stomp/stompjs";
+import SockJS from "sockjs-client";
 import { useParams } from "next/navigation";
 
 interface ChatFormData {
@@ -28,8 +29,8 @@ export default function ChatRoomContainer() {
     // };
 
     const client = new Client({
-      // 웹소켓 연결 URL
-      brokerURL: "ws://43.202.152.217:8080/chat", // URL 이거 맞는지....
+      // 웹소켓 연결 대신 SockJS사용
+      webSocketFactory: () => new SockJS("http://43.202.152.217:8080/chat"), // SockJS 사용
       reconnectDelay: 5000,
       connectHeaders: {},
     });
