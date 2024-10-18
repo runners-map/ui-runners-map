@@ -5,11 +5,12 @@
 //   title: '경로 설정하기'
 // };
 
-// export default function SearchRoute() {
-//   return (
-//     <>
-//       <script src={process.env.TMAP_API_KEY}></script>
-//       <Map />
-//     </>
-//   );
-// }
+export default function SearchRoute() {
+  return (
+    <>
+      {/* <script src={process.env.TMAP_API_KEY}></script>
+      <Map /> */}
+      <div>지도임</div>
+    </>
+  );
+}
