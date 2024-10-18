@@ -1,6 +1,7 @@
 "use client";
 
 import { LoginFormData } from "@/types/LoginForm";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { HiMiniEnvelope, HiLockClosed } from "react-icons/hi2";
@@ -18,7 +19,12 @@ export default function LoginForm() {
   });
 
   const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
-    console.log(data);
+    try {
+      const response = await axios.post("/api/user/loginin", data);
+      console.log("Registration successful:", response.data);
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
   };
 
   const router = useRouter();
