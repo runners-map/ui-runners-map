@@ -9,6 +9,7 @@ import {
 } from "react-icons/hi2";
 import { PiGenderIntersexBold } from "react-icons/pi";
 import { RegisterFormData } from "@/types/ResisterForm";
+import axios from "axios";
 
 export default function RegisterForm() {
   const {
@@ -27,7 +28,12 @@ export default function RegisterForm() {
   });
 
   const onSubmit: SubmitHandler<RegisterFormData> = async (data) => {
-    console.log(data);
+    try {
+      const response = await axios.post("/api/user/sign-up", data);
+      console.log("Registration successful:", response.data);
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
   };
 
   const password = watch("password");
